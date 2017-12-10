@@ -1,5 +1,6 @@
 
 # Loading dependents
+***
 
 
 ```python
@@ -8,6 +9,7 @@ import numpy as np
 ```
 
 # Reading files
+***
 
 
 ```python
@@ -22,6 +24,7 @@ student_data_df = pd.read_csv(student_data, encoding = 'ISO-8859-1')
 ```
 
 # Performing district report calculations
+***
 
 
 ```python
@@ -39,6 +42,7 @@ overall_passing_rate = (pct_students_passing_math + pct_students_passing_reading
 ```
 
 # District report variable formatting
+***
 
 
 ```python
@@ -50,6 +54,7 @@ avg_reading_score = '%.1f' % avg_reading_score
 ```
 
 # District report output/formating
+***
 
 
 ```python
@@ -123,6 +128,7 @@ district_report
 
 
 # Writing output to an excel file
+***
 
 
 ```python
@@ -131,6 +137,7 @@ district_report.to_excel("Downloads/District_report.xlsx", index=False)
 ```
 
 # School Summary Report - Calculations
+***
 
 
 ```python
@@ -205,6 +212,7 @@ temp_school_report['% overall passing'] = (temp_school_report['% passing math'] 
 ```
 
 # School Report Output
+***
 
 
 ```python
@@ -457,20 +465,287 @@ final_school_report
 
 
 # Formating entire table with percents and decimals
+***
 
 
 ```python
-# Code was removed because of a panda/python warning having to do with: copy values using loc vs. not using loc.
-
-#final_school_report['avg math score'] = pd.Series(round(val, 1) for val in final_school_report.loc[:, 'avg math score'])
-#final_school_report['avg reading score'] = pd.Series(round(val, 1) for val in final_school_report.loc[:, 'avg reading score'])
-#final_school_report['% passing math'] = pd.Series("{0:.1f}%".format(val * 100) for val in final_school_report.loc[:, '% passing math'])
-#final_school_report['% passing reading'] = pd.Series("{0:.1f}%".format(val * 100) for val in final_school_report.loc[:, '% passing reading'])
-#final_school_report['% overall passing'] = pd.Series("{0:.1f}%".format(val * 100) for val in final_school_report.loc[:, '% overall passing'])
-#final_school_report
+final_school_report['avg math score'] = pd.Series(round(val, 1) for val in final_school_report.loc[:, 'avg math score'])
+final_school_report['avg reading score'] = pd.Series(round(val, 1) for val in final_school_report.loc[:, 'avg reading score'])
+final_school_report['% passing math'] = pd.Series("{0:.1f}%".format(val * 100) for val in final_school_report.loc[:, '% passing math'])
+final_school_report['% passing reading'] = pd.Series("{0:.1f}%".format(val * 100) for val in final_school_report.loc[:, '% passing reading'])
+final_school_report['% overall passing'] = pd.Series("{0:.1f}%".format(val * 100) for val in final_school_report.loc[:, '% overall passing'])
+final_school_report
 ```
 
+    /Users/jeffmoore/anaconda3/lib/python3.6/site-packages/ipykernel_launcher.py:1: SettingWithCopyWarning: 
+    A value is trying to be set on a copy of a slice from a DataFrame.
+    Try using .loc[row_indexer,col_indexer] = value instead
+    
+    See the caveats in the documentation: http://pandas.pydata.org/pandas-docs/stable/indexing.html#indexing-view-versus-copy
+      """Entry point for launching an IPython kernel.
+    /Users/jeffmoore/anaconda3/lib/python3.6/site-packages/ipykernel_launcher.py:2: SettingWithCopyWarning: 
+    A value is trying to be set on a copy of a slice from a DataFrame.
+    Try using .loc[row_indexer,col_indexer] = value instead
+    
+    See the caveats in the documentation: http://pandas.pydata.org/pandas-docs/stable/indexing.html#indexing-view-versus-copy
+      
+    /Users/jeffmoore/anaconda3/lib/python3.6/site-packages/ipykernel_launcher.py:3: SettingWithCopyWarning: 
+    A value is trying to be set on a copy of a slice from a DataFrame.
+    Try using .loc[row_indexer,col_indexer] = value instead
+    
+    See the caveats in the documentation: http://pandas.pydata.org/pandas-docs/stable/indexing.html#indexing-view-versus-copy
+      This is separate from the ipykernel package so we can avoid doing imports until
+    /Users/jeffmoore/anaconda3/lib/python3.6/site-packages/ipykernel_launcher.py:4: SettingWithCopyWarning: 
+    A value is trying to be set on a copy of a slice from a DataFrame.
+    Try using .loc[row_indexer,col_indexer] = value instead
+    
+    See the caveats in the documentation: http://pandas.pydata.org/pandas-docs/stable/indexing.html#indexing-view-versus-copy
+      after removing the cwd from sys.path.
+    /Users/jeffmoore/anaconda3/lib/python3.6/site-packages/ipykernel_launcher.py:5: SettingWithCopyWarning: 
+    A value is trying to be set on a copy of a slice from a DataFrame.
+    Try using .loc[row_indexer,col_indexer] = value instead
+    
+    See the caveats in the documentation: http://pandas.pydata.org/pandas-docs/stable/indexing.html#indexing-view-versus-copy
+      """
+
+
+
+
+
+<div>
+<style>
+    .dataframe thead tr:only-child th {
+        text-align: right;
+    }
+
+    .dataframe thead th {
+        text-align: left;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>school</th>
+      <th>type</th>
+      <th>size</th>
+      <th>budget</th>
+      <th>per student budget</th>
+      <th>avg math score</th>
+      <th>avg reading score</th>
+      <th>% passing math</th>
+      <th>% passing reading</th>
+      <th>% overall passing</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>0</th>
+      <td>Bailey High School</td>
+      <td>District</td>
+      <td>4976</td>
+      <td>3124928</td>
+      <td>628.0</td>
+      <td>77.0</td>
+      <td>81.0</td>
+      <td>64.6%</td>
+      <td>79.3%</td>
+      <td>72.0%</td>
+    </tr>
+    <tr>
+      <th>1</th>
+      <td>Cabrera High School</td>
+      <td>Charter</td>
+      <td>1858</td>
+      <td>1081356</td>
+      <td>582.0</td>
+      <td>83.1</td>
+      <td>84.0</td>
+      <td>89.6%</td>
+      <td>93.9%</td>
+      <td>91.7%</td>
+    </tr>
+    <tr>
+      <th>2</th>
+      <td>Figueroa High School</td>
+      <td>District</td>
+      <td>2949</td>
+      <td>1884411</td>
+      <td>639.0</td>
+      <td>76.7</td>
+      <td>81.2</td>
+      <td>63.8%</td>
+      <td>78.4%</td>
+      <td>71.1%</td>
+    </tr>
+    <tr>
+      <th>3</th>
+      <td>Ford High School</td>
+      <td>District</td>
+      <td>2739</td>
+      <td>1763916</td>
+      <td>644.0</td>
+      <td>77.1</td>
+      <td>80.7</td>
+      <td>65.8%</td>
+      <td>77.5%</td>
+      <td>71.6%</td>
+    </tr>
+    <tr>
+      <th>4</th>
+      <td>Griffin High School</td>
+      <td>Charter</td>
+      <td>1468</td>
+      <td>917500</td>
+      <td>625.0</td>
+      <td>83.4</td>
+      <td>83.8</td>
+      <td>89.7%</td>
+      <td>93.4%</td>
+      <td>91.6%</td>
+    </tr>
+    <tr>
+      <th>5</th>
+      <td>Hernandez High School</td>
+      <td>District</td>
+      <td>4635</td>
+      <td>3022020</td>
+      <td>652.0</td>
+      <td>77.3</td>
+      <td>80.9</td>
+      <td>64.7%</td>
+      <td>78.2%</td>
+      <td>71.5%</td>
+    </tr>
+    <tr>
+      <th>6</th>
+      <td>Holden High School</td>
+      <td>Charter</td>
+      <td>427</td>
+      <td>248087</td>
+      <td>581.0</td>
+      <td>83.8</td>
+      <td>83.8</td>
+      <td>90.6%</td>
+      <td>92.7%</td>
+      <td>91.7%</td>
+    </tr>
+    <tr>
+      <th>7</th>
+      <td>Huang High School</td>
+      <td>District</td>
+      <td>2917</td>
+      <td>1910635</td>
+      <td>655.0</td>
+      <td>76.6</td>
+      <td>81.2</td>
+      <td>63.3%</td>
+      <td>78.8%</td>
+      <td>71.1%</td>
+    </tr>
+    <tr>
+      <th>8</th>
+      <td>Johnson High School</td>
+      <td>District</td>
+      <td>4761</td>
+      <td>3094650</td>
+      <td>650.0</td>
+      <td>77.1</td>
+      <td>81.0</td>
+      <td>63.9%</td>
+      <td>78.3%</td>
+      <td>71.1%</td>
+    </tr>
+    <tr>
+      <th>9</th>
+      <td>Pena High School</td>
+      <td>Charter</td>
+      <td>962</td>
+      <td>585858</td>
+      <td>609.0</td>
+      <td>83.8</td>
+      <td>84.0</td>
+      <td>91.7%</td>
+      <td>92.2%</td>
+      <td>91.9%</td>
+    </tr>
+    <tr>
+      <th>10</th>
+      <td>Rodriguez High School</td>
+      <td>District</td>
+      <td>3999</td>
+      <td>2547363</td>
+      <td>637.0</td>
+      <td>76.8</td>
+      <td>80.7</td>
+      <td>64.1%</td>
+      <td>77.7%</td>
+      <td>70.9%</td>
+    </tr>
+    <tr>
+      <th>11</th>
+      <td>Shelton High School</td>
+      <td>Charter</td>
+      <td>1761</td>
+      <td>1056600</td>
+      <td>600.0</td>
+      <td>83.4</td>
+      <td>83.7</td>
+      <td>89.9%</td>
+      <td>92.6%</td>
+      <td>91.3%</td>
+    </tr>
+    <tr>
+      <th>12</th>
+      <td>Thomas High School</td>
+      <td>Charter</td>
+      <td>1635</td>
+      <td>1043130</td>
+      <td>638.0</td>
+      <td>83.4</td>
+      <td>83.8</td>
+      <td>90.2%</td>
+      <td>92.9%</td>
+      <td>91.6%</td>
+    </tr>
+    <tr>
+      <th>13</th>
+      <td>Wilson High School</td>
+      <td>Charter</td>
+      <td>2283</td>
+      <td>1319574</td>
+      <td>578.0</td>
+      <td>83.3</td>
+      <td>84.0</td>
+      <td>90.9%</td>
+      <td>93.3%</td>
+      <td>92.1%</td>
+    </tr>
+    <tr>
+      <th>14</th>
+      <td>Wright High School</td>
+      <td>Charter</td>
+      <td>1800</td>
+      <td>1049400</td>
+      <td>583.0</td>
+      <td>83.7</td>
+      <td>84.0</td>
+      <td>90.3%</td>
+      <td>93.4%</td>
+      <td>91.9%</td>
+    </tr>
+  </tbody>
+</table>
+</div>
+
+
+
 # Best Performing Schools (by % overall passing)
+***
 
 
 ```python
@@ -519,11 +794,11 @@ top_5_schools.head(5)
       <td>2283</td>
       <td>1319574</td>
       <td>578.0</td>
-      <td>83.274201</td>
-      <td>83.989488</td>
-      <td>0.909330</td>
-      <td>0.932545</td>
-      <td>0.920937</td>
+      <td>83.3</td>
+      <td>84.0</td>
+      <td>90.9%</td>
+      <td>93.3%</td>
+      <td>92.1%</td>
     </tr>
     <tr>
       <th>9</th>
@@ -532,11 +807,11 @@ top_5_schools.head(5)
       <td>962</td>
       <td>585858</td>
       <td>609.0</td>
-      <td>83.839917</td>
-      <td>84.044699</td>
-      <td>0.916840</td>
-      <td>0.922037</td>
-      <td>0.919439</td>
+      <td>83.8</td>
+      <td>84.0</td>
+      <td>91.7%</td>
+      <td>92.2%</td>
+      <td>91.9%</td>
     </tr>
     <tr>
       <th>14</th>
@@ -545,11 +820,11 @@ top_5_schools.head(5)
       <td>1800</td>
       <td>1049400</td>
       <td>583.0</td>
-      <td>83.682222</td>
-      <td>83.955000</td>
-      <td>0.902778</td>
-      <td>0.934444</td>
-      <td>0.918611</td>
+      <td>83.7</td>
+      <td>84.0</td>
+      <td>90.3%</td>
+      <td>93.4%</td>
+      <td>91.9%</td>
     </tr>
     <tr>
       <th>1</th>
@@ -558,11 +833,11 @@ top_5_schools.head(5)
       <td>1858</td>
       <td>1081356</td>
       <td>582.0</td>
-      <td>83.061895</td>
-      <td>83.975780</td>
-      <td>0.895587</td>
-      <td>0.938644</td>
-      <td>0.917115</td>
+      <td>83.1</td>
+      <td>84.0</td>
+      <td>89.6%</td>
+      <td>93.9%</td>
+      <td>91.7%</td>
     </tr>
     <tr>
       <th>6</th>
@@ -571,11 +846,11 @@ top_5_schools.head(5)
       <td>427</td>
       <td>248087</td>
       <td>581.0</td>
-      <td>83.803279</td>
-      <td>83.814988</td>
-      <td>0.906323</td>
-      <td>0.927400</td>
-      <td>0.916862</td>
+      <td>83.8</td>
+      <td>83.8</td>
+      <td>90.6%</td>
+      <td>92.7%</td>
+      <td>91.7%</td>
     </tr>
   </tbody>
 </table>
@@ -584,6 +859,7 @@ top_5_schools.head(5)
 
 
 # Worst Performing Schools (by % overall passing)
+***
 
 
 ```python
@@ -632,11 +908,11 @@ bottom_5_schools.tail(5)
       <td>4635</td>
       <td>3022020</td>
       <td>652.0</td>
-      <td>77.289752</td>
-      <td>80.934412</td>
-      <td>0.647465</td>
-      <td>0.781877</td>
-      <td>0.714671</td>
+      <td>77.3</td>
+      <td>80.9</td>
+      <td>64.7%</td>
+      <td>78.2%</td>
+      <td>71.5%</td>
     </tr>
     <tr>
       <th>2</th>
@@ -645,24 +921,11 @@ bottom_5_schools.tail(5)
       <td>2949</td>
       <td>1884411</td>
       <td>639.0</td>
-      <td>76.711767</td>
-      <td>81.158020</td>
-      <td>0.637504</td>
-      <td>0.784334</td>
-      <td>0.710919</td>
-    </tr>
-    <tr>
-      <th>8</th>
-      <td>Johnson High School</td>
-      <td>District</td>
-      <td>4761</td>
-      <td>3094650</td>
-      <td>650.0</td>
-      <td>77.072464</td>
-      <td>80.966394</td>
-      <td>0.638521</td>
-      <td>0.782819</td>
-      <td>0.710670</td>
+      <td>76.7</td>
+      <td>81.2</td>
+      <td>63.8%</td>
+      <td>78.4%</td>
+      <td>71.1%</td>
     </tr>
     <tr>
       <th>7</th>
@@ -671,11 +934,24 @@ bottom_5_schools.tail(5)
       <td>2917</td>
       <td>1910635</td>
       <td>655.0</td>
-      <td>76.629414</td>
-      <td>81.182722</td>
-      <td>0.633185</td>
-      <td>0.788138</td>
-      <td>0.710662</td>
+      <td>76.6</td>
+      <td>81.2</td>
+      <td>63.3%</td>
+      <td>78.8%</td>
+      <td>71.1%</td>
+    </tr>
+    <tr>
+      <th>8</th>
+      <td>Johnson High School</td>
+      <td>District</td>
+      <td>4761</td>
+      <td>3094650</td>
+      <td>650.0</td>
+      <td>77.1</td>
+      <td>81.0</td>
+      <td>63.9%</td>
+      <td>78.3%</td>
+      <td>71.1%</td>
     </tr>
     <tr>
       <th>10</th>
@@ -684,11 +960,11 @@ bottom_5_schools.tail(5)
       <td>3999</td>
       <td>2547363</td>
       <td>637.0</td>
-      <td>76.842711</td>
-      <td>80.744686</td>
-      <td>0.640660</td>
-      <td>0.777444</td>
-      <td>0.709052</td>
+      <td>76.8</td>
+      <td>80.7</td>
+      <td>64.1%</td>
+      <td>77.7%</td>
+      <td>70.9%</td>
     </tr>
   </tbody>
 </table>
@@ -697,12 +973,17 @@ bottom_5_schools.tail(5)
 
 
 # Math Scores by Grade (by School)
+***
 
 
 ```python
 math_scores = student_data_df.groupby(['school','grade'], as_index=False)['math_score'].mean()
 math_scores = math_scores.pivot(index='school', columns='grade')['math_score']
 math_scores = math_scores[['9th', '10th', '11th', '12th']]
+math_scores['9th'] = math_scores['9th'].map('{:,.1f}'.format)
+math_scores['10th'] = math_scores['10th'].map('{:,.1f}'.format)
+math_scores['11th'] = math_scores['11th'].map('{:,.1f}'.format)
+math_scores['12th'] = math_scores['12th'].map('{:,.1f}'.format)
 math_scores
 ```
 
@@ -743,108 +1024,108 @@ math_scores
   <tbody>
     <tr>
       <th>Bailey High School</th>
-      <td>77.083676</td>
-      <td>76.996772</td>
-      <td>77.515588</td>
-      <td>76.492218</td>
+      <td>77.1</td>
+      <td>77.0</td>
+      <td>77.5</td>
+      <td>76.5</td>
     </tr>
     <tr>
       <th>Cabrera High School</th>
-      <td>83.094697</td>
-      <td>83.154506</td>
-      <td>82.765560</td>
-      <td>83.277487</td>
+      <td>83.1</td>
+      <td>83.2</td>
+      <td>82.8</td>
+      <td>83.3</td>
     </tr>
     <tr>
       <th>Figueroa High School</th>
-      <td>76.403037</td>
-      <td>76.539974</td>
-      <td>76.884344</td>
-      <td>77.151369</td>
+      <td>76.4</td>
+      <td>76.5</td>
+      <td>76.9</td>
+      <td>77.2</td>
     </tr>
     <tr>
       <th>Ford High School</th>
-      <td>77.361345</td>
-      <td>77.672316</td>
-      <td>76.918058</td>
-      <td>76.179963</td>
+      <td>77.4</td>
+      <td>77.7</td>
+      <td>76.9</td>
+      <td>76.2</td>
     </tr>
     <tr>
       <th>Griffin High School</th>
-      <td>82.044010</td>
-      <td>84.229064</td>
-      <td>83.842105</td>
-      <td>83.356164</td>
+      <td>82.0</td>
+      <td>84.2</td>
+      <td>83.8</td>
+      <td>83.4</td>
     </tr>
     <tr>
       <th>Hernandez High School</th>
-      <td>77.438495</td>
-      <td>77.337408</td>
-      <td>77.136029</td>
-      <td>77.186567</td>
+      <td>77.4</td>
+      <td>77.3</td>
+      <td>77.1</td>
+      <td>77.2</td>
     </tr>
     <tr>
       <th>Holden High School</th>
-      <td>83.787402</td>
-      <td>83.429825</td>
-      <td>85.000000</td>
-      <td>82.855422</td>
+      <td>83.8</td>
+      <td>83.4</td>
+      <td>85.0</td>
+      <td>82.9</td>
     </tr>
     <tr>
       <th>Huang High School</th>
-      <td>77.027251</td>
-      <td>75.908735</td>
-      <td>76.446602</td>
-      <td>77.225641</td>
+      <td>77.0</td>
+      <td>75.9</td>
+      <td>76.4</td>
+      <td>77.2</td>
     </tr>
     <tr>
       <th>Johnson High School</th>
-      <td>77.187857</td>
-      <td>76.691117</td>
-      <td>77.491653</td>
-      <td>76.863248</td>
+      <td>77.2</td>
+      <td>76.7</td>
+      <td>77.5</td>
+      <td>76.9</td>
     </tr>
     <tr>
       <th>Pena High School</th>
-      <td>83.625455</td>
-      <td>83.372000</td>
-      <td>84.328125</td>
-      <td>84.121547</td>
+      <td>83.6</td>
+      <td>83.4</td>
+      <td>84.3</td>
+      <td>84.1</td>
     </tr>
     <tr>
       <th>Rodriguez High School</th>
-      <td>76.859966</td>
-      <td>76.612500</td>
-      <td>76.395626</td>
-      <td>77.690748</td>
+      <td>76.9</td>
+      <td>76.6</td>
+      <td>76.4</td>
+      <td>77.7</td>
     </tr>
     <tr>
       <th>Shelton High School</th>
-      <td>83.420755</td>
-      <td>82.917411</td>
-      <td>83.383495</td>
-      <td>83.778976</td>
+      <td>83.4</td>
+      <td>82.9</td>
+      <td>83.4</td>
+      <td>83.8</td>
     </tr>
     <tr>
       <th>Thomas High School</th>
-      <td>83.590022</td>
-      <td>83.087886</td>
-      <td>83.498795</td>
-      <td>83.497041</td>
+      <td>83.6</td>
+      <td>83.1</td>
+      <td>83.5</td>
+      <td>83.5</td>
     </tr>
     <tr>
       <th>Wilson High School</th>
-      <td>83.085578</td>
-      <td>83.724422</td>
-      <td>83.195326</td>
-      <td>83.035794</td>
+      <td>83.1</td>
+      <td>83.7</td>
+      <td>83.2</td>
+      <td>83.0</td>
     </tr>
     <tr>
       <th>Wright High School</th>
-      <td>83.264706</td>
-      <td>84.010288</td>
-      <td>83.836782</td>
-      <td>83.644986</td>
+      <td>83.3</td>
+      <td>84.0</td>
+      <td>83.8</td>
+      <td>83.6</td>
     </tr>
   </tbody>
 </table>
@@ -853,12 +1134,17 @@ math_scores
 
 
 # Reading Scores by Grade (by School)
+***
 
 
 ```python
 reading_scores = student_data_df.groupby(['school','grade'], as_index=False)['reading_score'].mean()
 reading_scores = reading_scores.pivot(index='school', columns='grade')['reading_score']
 reading_scores = reading_scores[['9th', '10th', '11th', '12th']]
+reading_scores['9th'] = reading_scores['9th'].map('{:,.1f}'.format)
+reading_scores['10th'] = reading_scores['10th'].map('{:,.1f}'.format)
+reading_scores['11th'] = reading_scores['11th'].map('{:,.1f}'.format)
+reading_scores['12th'] = reading_scores['12th'].map('{:,.1f}'.format)
 reading_scores
 ```
 
@@ -899,108 +1185,108 @@ reading_scores
   <tbody>
     <tr>
       <th>Bailey High School</th>
-      <td>81.303155</td>
-      <td>80.907183</td>
-      <td>80.945643</td>
-      <td>80.912451</td>
+      <td>81.3</td>
+      <td>80.9</td>
+      <td>80.9</td>
+      <td>80.9</td>
     </tr>
     <tr>
       <th>Cabrera High School</th>
-      <td>83.676136</td>
-      <td>84.253219</td>
-      <td>83.788382</td>
-      <td>84.287958</td>
+      <td>83.7</td>
+      <td>84.3</td>
+      <td>83.8</td>
+      <td>84.3</td>
     </tr>
     <tr>
       <th>Figueroa High School</th>
-      <td>81.198598</td>
-      <td>81.408912</td>
-      <td>80.640339</td>
-      <td>81.384863</td>
+      <td>81.2</td>
+      <td>81.4</td>
+      <td>80.6</td>
+      <td>81.4</td>
     </tr>
     <tr>
       <th>Ford High School</th>
-      <td>80.632653</td>
-      <td>81.262712</td>
-      <td>80.403642</td>
-      <td>80.662338</td>
+      <td>80.6</td>
+      <td>81.3</td>
+      <td>80.4</td>
+      <td>80.7</td>
     </tr>
     <tr>
       <th>Griffin High School</th>
-      <td>83.369193</td>
-      <td>83.706897</td>
-      <td>84.288089</td>
-      <td>84.013699</td>
+      <td>83.4</td>
+      <td>83.7</td>
+      <td>84.3</td>
+      <td>84.0</td>
     </tr>
     <tr>
       <th>Hernandez High School</th>
-      <td>80.866860</td>
-      <td>80.660147</td>
-      <td>81.396140</td>
-      <td>80.857143</td>
+      <td>80.9</td>
+      <td>80.7</td>
+      <td>81.4</td>
+      <td>80.9</td>
     </tr>
     <tr>
       <th>Holden High School</th>
-      <td>83.677165</td>
-      <td>83.324561</td>
-      <td>83.815534</td>
-      <td>84.698795</td>
+      <td>83.7</td>
+      <td>83.3</td>
+      <td>83.8</td>
+      <td>84.7</td>
     </tr>
     <tr>
       <th>Huang High School</th>
-      <td>81.290284</td>
-      <td>81.512386</td>
-      <td>81.417476</td>
-      <td>80.305983</td>
+      <td>81.3</td>
+      <td>81.5</td>
+      <td>81.4</td>
+      <td>80.3</td>
     </tr>
     <tr>
       <th>Johnson High School</th>
-      <td>81.260714</td>
-      <td>80.773431</td>
-      <td>80.616027</td>
-      <td>81.227564</td>
+      <td>81.3</td>
+      <td>80.8</td>
+      <td>80.6</td>
+      <td>81.2</td>
     </tr>
     <tr>
       <th>Pena High School</th>
-      <td>83.807273</td>
-      <td>83.612000</td>
-      <td>84.335938</td>
-      <td>84.591160</td>
+      <td>83.8</td>
+      <td>83.6</td>
+      <td>84.3</td>
+      <td>84.6</td>
     </tr>
     <tr>
       <th>Rodriguez High School</th>
-      <td>80.993127</td>
-      <td>80.629808</td>
-      <td>80.864811</td>
-      <td>80.376426</td>
+      <td>81.0</td>
+      <td>80.6</td>
+      <td>80.9</td>
+      <td>80.4</td>
     </tr>
     <tr>
       <th>Shelton High School</th>
-      <td>84.122642</td>
-      <td>83.441964</td>
-      <td>84.373786</td>
-      <td>82.781671</td>
+      <td>84.1</td>
+      <td>83.4</td>
+      <td>84.4</td>
+      <td>82.8</td>
     </tr>
     <tr>
       <th>Thomas High School</th>
-      <td>83.728850</td>
-      <td>84.254157</td>
-      <td>83.585542</td>
-      <td>83.831361</td>
+      <td>83.7</td>
+      <td>84.3</td>
+      <td>83.6</td>
+      <td>83.8</td>
     </tr>
     <tr>
       <th>Wilson High School</th>
-      <td>83.939778</td>
-      <td>84.021452</td>
-      <td>83.764608</td>
-      <td>84.317673</td>
+      <td>83.9</td>
+      <td>84.0</td>
+      <td>83.8</td>
+      <td>84.3</td>
     </tr>
     <tr>
       <th>Wright High School</th>
-      <td>83.833333</td>
-      <td>83.812757</td>
-      <td>84.156322</td>
-      <td>84.073171</td>
+      <td>83.8</td>
+      <td>83.8</td>
+      <td>84.2</td>
+      <td>84.1</td>
     </tr>
   </tbody>
 </table>
@@ -1009,12 +1295,13 @@ reading_scores
 
 
 # Spending analysis vs. % overall passing
+***
 
 
 ```python
 bin_labels = ['Lowest', 'Low', 'Med', 'High']
 bins=[575,600,625,650,660]
-final_school_report['spending'] = pd.cut(final_school_report.loc[:, 'per student budget'], bins=bins,labels=bin_labels, right=False)
+final_school_report['spending'] = pd.cut(final_school_report['per student budget'], bins=bins,labels=bin_labels, right=False)
 ```
 
     /Users/jeffmoore/anaconda3/lib/python3.6/site-packages/ipykernel_launcher.py:3: SettingWithCopyWarning: 
@@ -1067,165 +1354,165 @@ spend_report.sort_values('% overall passing', ascending=False)
       <th>13</th>
       <td>Wilson High School</td>
       <td>578.0</td>
-      <td>83.274201</td>
-      <td>83.989488</td>
-      <td>0.909330</td>
-      <td>0.932545</td>
-      <td>0.920937</td>
+      <td>83.3</td>
+      <td>84.0</td>
+      <td>90.9%</td>
+      <td>93.3%</td>
+      <td>92.1%</td>
       <td>Lowest</td>
     </tr>
     <tr>
       <th>9</th>
       <td>Pena High School</td>
       <td>609.0</td>
-      <td>83.839917</td>
-      <td>84.044699</td>
-      <td>0.916840</td>
-      <td>0.922037</td>
-      <td>0.919439</td>
+      <td>83.8</td>
+      <td>84.0</td>
+      <td>91.7%</td>
+      <td>92.2%</td>
+      <td>91.9%</td>
       <td>Low</td>
     </tr>
     <tr>
       <th>14</th>
       <td>Wright High School</td>
       <td>583.0</td>
-      <td>83.682222</td>
-      <td>83.955000</td>
-      <td>0.902778</td>
-      <td>0.934444</td>
-      <td>0.918611</td>
+      <td>83.7</td>
+      <td>84.0</td>
+      <td>90.3%</td>
+      <td>93.4%</td>
+      <td>91.9%</td>
       <td>Lowest</td>
     </tr>
     <tr>
       <th>1</th>
       <td>Cabrera High School</td>
       <td>582.0</td>
-      <td>83.061895</td>
-      <td>83.975780</td>
-      <td>0.895587</td>
-      <td>0.938644</td>
-      <td>0.917115</td>
+      <td>83.1</td>
+      <td>84.0</td>
+      <td>89.6%</td>
+      <td>93.9%</td>
+      <td>91.7%</td>
       <td>Lowest</td>
     </tr>
     <tr>
       <th>6</th>
       <td>Holden High School</td>
       <td>581.0</td>
-      <td>83.803279</td>
-      <td>83.814988</td>
-      <td>0.906323</td>
-      <td>0.927400</td>
-      <td>0.916862</td>
+      <td>83.8</td>
+      <td>83.8</td>
+      <td>90.6%</td>
+      <td>92.7%</td>
+      <td>91.7%</td>
       <td>Lowest</td>
-    </tr>
-    <tr>
-      <th>12</th>
-      <td>Thomas High School</td>
-      <td>638.0</td>
-      <td>83.418349</td>
-      <td>83.848930</td>
-      <td>0.902141</td>
-      <td>0.929052</td>
-      <td>0.915596</td>
-      <td>Med</td>
     </tr>
     <tr>
       <th>4</th>
       <td>Griffin High School</td>
       <td>625.0</td>
-      <td>83.351499</td>
-      <td>83.816757</td>
-      <td>0.897139</td>
-      <td>0.933924</td>
-      <td>0.915531</td>
+      <td>83.4</td>
+      <td>83.8</td>
+      <td>89.7%</td>
+      <td>93.4%</td>
+      <td>91.6%</td>
+      <td>Med</td>
+    </tr>
+    <tr>
+      <th>12</th>
+      <td>Thomas High School</td>
+      <td>638.0</td>
+      <td>83.4</td>
+      <td>83.8</td>
+      <td>90.2%</td>
+      <td>92.9%</td>
+      <td>91.6%</td>
       <td>Med</td>
     </tr>
     <tr>
       <th>11</th>
       <td>Shelton High School</td>
       <td>600.0</td>
-      <td>83.359455</td>
-      <td>83.725724</td>
-      <td>0.898921</td>
-      <td>0.926178</td>
-      <td>0.912550</td>
+      <td>83.4</td>
+      <td>83.7</td>
+      <td>89.9%</td>
+      <td>92.6%</td>
+      <td>91.3%</td>
       <td>Low</td>
     </tr>
     <tr>
       <th>0</th>
       <td>Bailey High School</td>
       <td>628.0</td>
-      <td>77.048432</td>
-      <td>81.033963</td>
-      <td>0.646302</td>
-      <td>0.793006</td>
-      <td>0.719654</td>
+      <td>77.0</td>
+      <td>81.0</td>
+      <td>64.6%</td>
+      <td>79.3%</td>
+      <td>72.0%</td>
       <td>Med</td>
     </tr>
     <tr>
       <th>3</th>
       <td>Ford High School</td>
       <td>644.0</td>
-      <td>77.102592</td>
-      <td>80.746258</td>
-      <td>0.657539</td>
-      <td>0.775100</td>
-      <td>0.716320</td>
+      <td>77.1</td>
+      <td>80.7</td>
+      <td>65.8%</td>
+      <td>77.5%</td>
+      <td>71.6%</td>
       <td>Med</td>
     </tr>
     <tr>
       <th>5</th>
       <td>Hernandez High School</td>
       <td>652.0</td>
-      <td>77.289752</td>
-      <td>80.934412</td>
-      <td>0.647465</td>
-      <td>0.781877</td>
-      <td>0.714671</td>
+      <td>77.3</td>
+      <td>80.9</td>
+      <td>64.7%</td>
+      <td>78.2%</td>
+      <td>71.5%</td>
       <td>High</td>
     </tr>
     <tr>
       <th>2</th>
       <td>Figueroa High School</td>
       <td>639.0</td>
-      <td>76.711767</td>
-      <td>81.158020</td>
-      <td>0.637504</td>
-      <td>0.784334</td>
-      <td>0.710919</td>
+      <td>76.7</td>
+      <td>81.2</td>
+      <td>63.8%</td>
+      <td>78.4%</td>
+      <td>71.1%</td>
       <td>Med</td>
-    </tr>
-    <tr>
-      <th>8</th>
-      <td>Johnson High School</td>
-      <td>650.0</td>
-      <td>77.072464</td>
-      <td>80.966394</td>
-      <td>0.638521</td>
-      <td>0.782819</td>
-      <td>0.710670</td>
-      <td>High</td>
     </tr>
     <tr>
       <th>7</th>
       <td>Huang High School</td>
       <td>655.0</td>
-      <td>76.629414</td>
-      <td>81.182722</td>
-      <td>0.633185</td>
-      <td>0.788138</td>
-      <td>0.710662</td>
+      <td>76.6</td>
+      <td>81.2</td>
+      <td>63.3%</td>
+      <td>78.8%</td>
+      <td>71.1%</td>
+      <td>High</td>
+    </tr>
+    <tr>
+      <th>8</th>
+      <td>Johnson High School</td>
+      <td>650.0</td>
+      <td>77.1</td>
+      <td>81.0</td>
+      <td>63.9%</td>
+      <td>78.3%</td>
+      <td>71.1%</td>
       <td>High</td>
     </tr>
     <tr>
       <th>10</th>
       <td>Rodriguez High School</td>
       <td>637.0</td>
-      <td>76.842711</td>
-      <td>80.744686</td>
-      <td>0.640660</td>
-      <td>0.777444</td>
-      <td>0.709052</td>
+      <td>76.8</td>
+      <td>80.7</td>
+      <td>64.1%</td>
+      <td>77.7%</td>
+      <td>70.9%</td>
       <td>Med</td>
     </tr>
   </tbody>
@@ -1235,6 +1522,7 @@ spend_report.sort_values('% overall passing', ascending=False)
 
 
 # Spending vs. School Size
+***
 
 
 ```python
@@ -1286,11 +1574,11 @@ size_report.sort_values('% overall passing', ascending=False)
       <th>13</th>
       <td>Wilson High School</td>
       <td>578.0</td>
-      <td>83.274201</td>
-      <td>83.989488</td>
-      <td>0.909330</td>
-      <td>0.932545</td>
-      <td>0.920937</td>
+      <td>83.3</td>
+      <td>84.0</td>
+      <td>90.9%</td>
+      <td>93.3%</td>
+      <td>92.1%</td>
       <td>Lowest</td>
       <td>Medium</td>
     </tr>
@@ -1298,11 +1586,11 @@ size_report.sort_values('% overall passing', ascending=False)
       <th>9</th>
       <td>Pena High School</td>
       <td>609.0</td>
-      <td>83.839917</td>
-      <td>84.044699</td>
-      <td>0.916840</td>
-      <td>0.922037</td>
-      <td>0.919439</td>
+      <td>83.8</td>
+      <td>84.0</td>
+      <td>91.7%</td>
+      <td>92.2%</td>
+      <td>91.9%</td>
       <td>Low</td>
       <td>Small</td>
     </tr>
@@ -1310,11 +1598,11 @@ size_report.sort_values('% overall passing', ascending=False)
       <th>14</th>
       <td>Wright High School</td>
       <td>583.0</td>
-      <td>83.682222</td>
-      <td>83.955000</td>
-      <td>0.902778</td>
-      <td>0.934444</td>
-      <td>0.918611</td>
+      <td>83.7</td>
+      <td>84.0</td>
+      <td>90.3%</td>
+      <td>93.4%</td>
+      <td>91.9%</td>
       <td>Lowest</td>
       <td>Medium</td>
     </tr>
@@ -1322,11 +1610,11 @@ size_report.sort_values('% overall passing', ascending=False)
       <th>1</th>
       <td>Cabrera High School</td>
       <td>582.0</td>
-      <td>83.061895</td>
-      <td>83.975780</td>
-      <td>0.895587</td>
-      <td>0.938644</td>
-      <td>0.917115</td>
+      <td>83.1</td>
+      <td>84.0</td>
+      <td>89.6%</td>
+      <td>93.9%</td>
+      <td>91.7%</td>
       <td>Lowest</td>
       <td>Medium</td>
     </tr>
@@ -1334,35 +1622,35 @@ size_report.sort_values('% overall passing', ascending=False)
       <th>6</th>
       <td>Holden High School</td>
       <td>581.0</td>
-      <td>83.803279</td>
-      <td>83.814988</td>
-      <td>0.906323</td>
-      <td>0.927400</td>
-      <td>0.916862</td>
+      <td>83.8</td>
+      <td>83.8</td>
+      <td>90.6%</td>
+      <td>92.7%</td>
+      <td>91.7%</td>
       <td>Lowest</td>
       <td>Small</td>
-    </tr>
-    <tr>
-      <th>12</th>
-      <td>Thomas High School</td>
-      <td>638.0</td>
-      <td>83.418349</td>
-      <td>83.848930</td>
-      <td>0.902141</td>
-      <td>0.929052</td>
-      <td>0.915596</td>
-      <td>Med</td>
-      <td>Medium</td>
     </tr>
     <tr>
       <th>4</th>
       <td>Griffin High School</td>
       <td>625.0</td>
-      <td>83.351499</td>
-      <td>83.816757</td>
-      <td>0.897139</td>
-      <td>0.933924</td>
-      <td>0.915531</td>
+      <td>83.4</td>
+      <td>83.8</td>
+      <td>89.7%</td>
+      <td>93.4%</td>
+      <td>91.6%</td>
+      <td>Med</td>
+      <td>Medium</td>
+    </tr>
+    <tr>
+      <th>12</th>
+      <td>Thomas High School</td>
+      <td>638.0</td>
+      <td>83.4</td>
+      <td>83.8</td>
+      <td>90.2%</td>
+      <td>92.9%</td>
+      <td>91.6%</td>
       <td>Med</td>
       <td>Medium</td>
     </tr>
@@ -1370,11 +1658,11 @@ size_report.sort_values('% overall passing', ascending=False)
       <th>11</th>
       <td>Shelton High School</td>
       <td>600.0</td>
-      <td>83.359455</td>
-      <td>83.725724</td>
-      <td>0.898921</td>
-      <td>0.926178</td>
-      <td>0.912550</td>
+      <td>83.4</td>
+      <td>83.7</td>
+      <td>89.9%</td>
+      <td>92.6%</td>
+      <td>91.3%</td>
       <td>Low</td>
       <td>Medium</td>
     </tr>
@@ -1382,11 +1670,11 @@ size_report.sort_values('% overall passing', ascending=False)
       <th>0</th>
       <td>Bailey High School</td>
       <td>628.0</td>
-      <td>77.048432</td>
-      <td>81.033963</td>
-      <td>0.646302</td>
-      <td>0.793006</td>
-      <td>0.719654</td>
+      <td>77.0</td>
+      <td>81.0</td>
+      <td>64.6%</td>
+      <td>79.3%</td>
+      <td>72.0%</td>
       <td>Med</td>
       <td>Large</td>
     </tr>
@@ -1394,11 +1682,11 @@ size_report.sort_values('% overall passing', ascending=False)
       <th>3</th>
       <td>Ford High School</td>
       <td>644.0</td>
-      <td>77.102592</td>
-      <td>80.746258</td>
-      <td>0.657539</td>
-      <td>0.775100</td>
-      <td>0.716320</td>
+      <td>77.1</td>
+      <td>80.7</td>
+      <td>65.8%</td>
+      <td>77.5%</td>
+      <td>71.6%</td>
       <td>Med</td>
       <td>Medium</td>
     </tr>
@@ -1406,11 +1694,11 @@ size_report.sort_values('% overall passing', ascending=False)
       <th>5</th>
       <td>Hernandez High School</td>
       <td>652.0</td>
-      <td>77.289752</td>
-      <td>80.934412</td>
-      <td>0.647465</td>
-      <td>0.781877</td>
-      <td>0.714671</td>
+      <td>77.3</td>
+      <td>80.9</td>
+      <td>64.7%</td>
+      <td>78.2%</td>
+      <td>71.5%</td>
       <td>High</td>
       <td>Large</td>
     </tr>
@@ -1418,47 +1706,47 @@ size_report.sort_values('% overall passing', ascending=False)
       <th>2</th>
       <td>Figueroa High School</td>
       <td>639.0</td>
-      <td>76.711767</td>
-      <td>81.158020</td>
-      <td>0.637504</td>
-      <td>0.784334</td>
-      <td>0.710919</td>
+      <td>76.7</td>
+      <td>81.2</td>
+      <td>63.8%</td>
+      <td>78.4%</td>
+      <td>71.1%</td>
       <td>Med</td>
+      <td>Medium</td>
+    </tr>
+    <tr>
+      <th>7</th>
+      <td>Huang High School</td>
+      <td>655.0</td>
+      <td>76.6</td>
+      <td>81.2</td>
+      <td>63.3%</td>
+      <td>78.8%</td>
+      <td>71.1%</td>
+      <td>High</td>
       <td>Medium</td>
     </tr>
     <tr>
       <th>8</th>
       <td>Johnson High School</td>
       <td>650.0</td>
-      <td>77.072464</td>
-      <td>80.966394</td>
-      <td>0.638521</td>
-      <td>0.782819</td>
-      <td>0.710670</td>
+      <td>77.1</td>
+      <td>81.0</td>
+      <td>63.9%</td>
+      <td>78.3%</td>
+      <td>71.1%</td>
       <td>High</td>
       <td>Large</td>
-    </tr>
-    <tr>
-      <th>7</th>
-      <td>Huang High School</td>
-      <td>655.0</td>
-      <td>76.629414</td>
-      <td>81.182722</td>
-      <td>0.633185</td>
-      <td>0.788138</td>
-      <td>0.710662</td>
-      <td>High</td>
-      <td>Medium</td>
     </tr>
     <tr>
       <th>10</th>
       <td>Rodriguez High School</td>
       <td>637.0</td>
-      <td>76.842711</td>
-      <td>80.744686</td>
-      <td>0.640660</td>
-      <td>0.777444</td>
-      <td>0.709052</td>
+      <td>76.8</td>
+      <td>80.7</td>
+      <td>64.1%</td>
+      <td>77.7%</td>
+      <td>70.9%</td>
       <td>Med</td>
       <td>Large</td>
     </tr>
@@ -1469,6 +1757,7 @@ size_report.sort_values('% overall passing', ascending=False)
 
 
 # Spending vs. School Type
+***
 
 
 ```python
@@ -1515,11 +1804,11 @@ school_type.sort_values('% overall passing', ascending=False)
       <th>13</th>
       <td>Wilson High School</td>
       <td>578.0</td>
-      <td>83.274201</td>
-      <td>83.989488</td>
-      <td>0.909330</td>
-      <td>0.932545</td>
-      <td>0.920937</td>
+      <td>83.3</td>
+      <td>84.0</td>
+      <td>90.9%</td>
+      <td>93.3%</td>
+      <td>92.1%</td>
       <td>Lowest</td>
       <td>Medium</td>
       <td>Charter</td>
@@ -1528,11 +1817,11 @@ school_type.sort_values('% overall passing', ascending=False)
       <th>9</th>
       <td>Pena High School</td>
       <td>609.0</td>
-      <td>83.839917</td>
-      <td>84.044699</td>
-      <td>0.916840</td>
-      <td>0.922037</td>
-      <td>0.919439</td>
+      <td>83.8</td>
+      <td>84.0</td>
+      <td>91.7%</td>
+      <td>92.2%</td>
+      <td>91.9%</td>
       <td>Low</td>
       <td>Small</td>
       <td>Charter</td>
@@ -1541,11 +1830,11 @@ school_type.sort_values('% overall passing', ascending=False)
       <th>14</th>
       <td>Wright High School</td>
       <td>583.0</td>
-      <td>83.682222</td>
-      <td>83.955000</td>
-      <td>0.902778</td>
-      <td>0.934444</td>
-      <td>0.918611</td>
+      <td>83.7</td>
+      <td>84.0</td>
+      <td>90.3%</td>
+      <td>93.4%</td>
+      <td>91.9%</td>
       <td>Lowest</td>
       <td>Medium</td>
       <td>Charter</td>
@@ -1554,11 +1843,11 @@ school_type.sort_values('% overall passing', ascending=False)
       <th>1</th>
       <td>Cabrera High School</td>
       <td>582.0</td>
-      <td>83.061895</td>
-      <td>83.975780</td>
-      <td>0.895587</td>
-      <td>0.938644</td>
-      <td>0.917115</td>
+      <td>83.1</td>
+      <td>84.0</td>
+      <td>89.6%</td>
+      <td>93.9%</td>
+      <td>91.7%</td>
       <td>Lowest</td>
       <td>Medium</td>
       <td>Charter</td>
@@ -1567,37 +1856,37 @@ school_type.sort_values('% overall passing', ascending=False)
       <th>6</th>
       <td>Holden High School</td>
       <td>581.0</td>
-      <td>83.803279</td>
-      <td>83.814988</td>
-      <td>0.906323</td>
-      <td>0.927400</td>
-      <td>0.916862</td>
+      <td>83.8</td>
+      <td>83.8</td>
+      <td>90.6%</td>
+      <td>92.7%</td>
+      <td>91.7%</td>
       <td>Lowest</td>
       <td>Small</td>
-      <td>Charter</td>
-    </tr>
-    <tr>
-      <th>12</th>
-      <td>Thomas High School</td>
-      <td>638.0</td>
-      <td>83.418349</td>
-      <td>83.848930</td>
-      <td>0.902141</td>
-      <td>0.929052</td>
-      <td>0.915596</td>
-      <td>Med</td>
-      <td>Medium</td>
       <td>Charter</td>
     </tr>
     <tr>
       <th>4</th>
       <td>Griffin High School</td>
       <td>625.0</td>
-      <td>83.351499</td>
-      <td>83.816757</td>
-      <td>0.897139</td>
-      <td>0.933924</td>
-      <td>0.915531</td>
+      <td>83.4</td>
+      <td>83.8</td>
+      <td>89.7%</td>
+      <td>93.4%</td>
+      <td>91.6%</td>
+      <td>Med</td>
+      <td>Medium</td>
+      <td>Charter</td>
+    </tr>
+    <tr>
+      <th>12</th>
+      <td>Thomas High School</td>
+      <td>638.0</td>
+      <td>83.4</td>
+      <td>83.8</td>
+      <td>90.2%</td>
+      <td>92.9%</td>
+      <td>91.6%</td>
       <td>Med</td>
       <td>Medium</td>
       <td>Charter</td>
@@ -1606,11 +1895,11 @@ school_type.sort_values('% overall passing', ascending=False)
       <th>11</th>
       <td>Shelton High School</td>
       <td>600.0</td>
-      <td>83.359455</td>
-      <td>83.725724</td>
-      <td>0.898921</td>
-      <td>0.926178</td>
-      <td>0.912550</td>
+      <td>83.4</td>
+      <td>83.7</td>
+      <td>89.9%</td>
+      <td>92.6%</td>
+      <td>91.3%</td>
       <td>Low</td>
       <td>Medium</td>
       <td>Charter</td>
@@ -1619,11 +1908,11 @@ school_type.sort_values('% overall passing', ascending=False)
       <th>0</th>
       <td>Bailey High School</td>
       <td>628.0</td>
-      <td>77.048432</td>
-      <td>81.033963</td>
-      <td>0.646302</td>
-      <td>0.793006</td>
-      <td>0.719654</td>
+      <td>77.0</td>
+      <td>81.0</td>
+      <td>64.6%</td>
+      <td>79.3%</td>
+      <td>72.0%</td>
       <td>Med</td>
       <td>Large</td>
       <td>District</td>
@@ -1632,11 +1921,11 @@ school_type.sort_values('% overall passing', ascending=False)
       <th>3</th>
       <td>Ford High School</td>
       <td>644.0</td>
-      <td>77.102592</td>
-      <td>80.746258</td>
-      <td>0.657539</td>
-      <td>0.775100</td>
-      <td>0.716320</td>
+      <td>77.1</td>
+      <td>80.7</td>
+      <td>65.8%</td>
+      <td>77.5%</td>
+      <td>71.6%</td>
       <td>Med</td>
       <td>Medium</td>
       <td>District</td>
@@ -1645,11 +1934,11 @@ school_type.sort_values('% overall passing', ascending=False)
       <th>5</th>
       <td>Hernandez High School</td>
       <td>652.0</td>
-      <td>77.289752</td>
-      <td>80.934412</td>
-      <td>0.647465</td>
-      <td>0.781877</td>
-      <td>0.714671</td>
+      <td>77.3</td>
+      <td>80.9</td>
+      <td>64.7%</td>
+      <td>78.2%</td>
+      <td>71.5%</td>
       <td>High</td>
       <td>Large</td>
       <td>District</td>
@@ -1658,12 +1947,25 @@ school_type.sort_values('% overall passing', ascending=False)
       <th>2</th>
       <td>Figueroa High School</td>
       <td>639.0</td>
-      <td>76.711767</td>
-      <td>81.158020</td>
-      <td>0.637504</td>
-      <td>0.784334</td>
-      <td>0.710919</td>
+      <td>76.7</td>
+      <td>81.2</td>
+      <td>63.8%</td>
+      <td>78.4%</td>
+      <td>71.1%</td>
       <td>Med</td>
+      <td>Medium</td>
+      <td>District</td>
+    </tr>
+    <tr>
+      <th>7</th>
+      <td>Huang High School</td>
+      <td>655.0</td>
+      <td>76.6</td>
+      <td>81.2</td>
+      <td>63.3%</td>
+      <td>78.8%</td>
+      <td>71.1%</td>
+      <td>High</td>
       <td>Medium</td>
       <td>District</td>
     </tr>
@@ -1671,37 +1973,24 @@ school_type.sort_values('% overall passing', ascending=False)
       <th>8</th>
       <td>Johnson High School</td>
       <td>650.0</td>
-      <td>77.072464</td>
-      <td>80.966394</td>
-      <td>0.638521</td>
-      <td>0.782819</td>
-      <td>0.710670</td>
+      <td>77.1</td>
+      <td>81.0</td>
+      <td>63.9%</td>
+      <td>78.3%</td>
+      <td>71.1%</td>
       <td>High</td>
       <td>Large</td>
-      <td>District</td>
-    </tr>
-    <tr>
-      <th>7</th>
-      <td>Huang High School</td>
-      <td>655.0</td>
-      <td>76.629414</td>
-      <td>81.182722</td>
-      <td>0.633185</td>
-      <td>0.788138</td>
-      <td>0.710662</td>
-      <td>High</td>
-      <td>Medium</td>
       <td>District</td>
     </tr>
     <tr>
       <th>10</th>
       <td>Rodriguez High School</td>
       <td>637.0</td>
-      <td>76.842711</td>
-      <td>80.744686</td>
-      <td>0.640660</td>
-      <td>0.777444</td>
-      <td>0.709052</td>
+      <td>76.8</td>
+      <td>80.7</td>
+      <td>64.1%</td>
+      <td>77.7%</td>
+      <td>70.9%</td>
       <td>Med</td>
       <td>Large</td>
       <td>District</td>
@@ -1713,6 +2002,7 @@ school_type.sort_values('% overall passing', ascending=False)
 
 
 # Observations
+***
 
 4 of the 5 best performing schools spend the least per student. This is counter intuitive as most would think that spending more per student would mean that performance would be best.
 
